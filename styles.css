@@ -5,33 +5,57 @@
 /*----------------------------------------------------------------------------------------
 -------------------------- Global styles---------------------------------------------------
 ----------------------------------------------------------------------------------------*/
-body {
-	font-family: arial;
-    font-size: 16px;
+html {
+  box-sizing: border-box; 
+  /*fixes box sizing issues with Flex, SEE https://css-tricks.com/flexbox-nav-bar-fixed-variable-take-rest-elements/*/
+    font-family: arial;
+    font-size: 1rem;
     color: black;
+  }
+
+ *, *:before, *:after {  /*fixes box sizing issues for different OS versions*/
+  box-sizing: inherit;
 }
+
+ /* remove whitespace around page */
+  body {
+    margin: 0;  
+  }
+  
+
 
 .container{
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 10px;
     display: grid;
-    grid-template-areas:
-        "grid-header   grid-header   grid-header"
-        "grid-projects grid-projects grid-projects"
-        "grid-contact  grid-about    grid-about"
-        "grid-footer   grid-footer   grid-footer";
+    grid-template-columns: .4fr .2fr .4fr;
+    grid-template-rows:  25% auto 30% 10%;
+    grid-gap: 5px 5px;
+    background-color: blanchedalmond;
     }
 
     .grid-projects {
-        grid-area: grid-projects;
+        background-color: plum;
+        grid-column: 1/4;
+        grid-row: 2/3;
+        
     }
 
+    .project-title {
+        border: 1px solid black;
+
+    }
     .grid-contact {
-        grid-area: grid-contact;
+        border: 1px solid black;
+        grid-column: 1/2;
+        grid-row: 3/4;
     }
 
     .grid-about {
-        grid-area: grid-about;
+        border: 1px solid black;
+        grid-column: 2/4;
+        grid-row: 3/4;
+
     }
 /* #title  {
     font-family: arial;
@@ -44,11 +68,76 @@ body {
 
 /* ----------------------Header------------------------------------------------ */
 header {
-    grid-area:grid-header;
+    background-color: aqua;
+    /* set up grid */
+    grid-column: 1/4;
+    grid-row: 1/2;
+    /* align items within grid with flex */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+header #welcome-section {
+    border: 1px solid black;
+    text-transform: uppercase;
+    padding: 10px 150px;
+        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+header #navbar {
+    border: 1px solid black;
+    margin: 0 auto;
+    padding: 0;
+
+    display: flex;
+    flex: 2;       /* takes up twice space as 1 */
+}
+
+header #navbar ul {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    
+    /* flex: auto; */
+    /* align-content:end; */
+}
+header #navbar li {
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 0 20px;
+    padding: 0 10px;
+    /* put list items next to each other */
+    /* display: inline; */
+    /* justify-content: space-evenly; */
+
+    display: flex;
+    flex: 1;                      /* take up the rest of the remaining space */
+    
+       
+   } 
+
+header #navbar li a{
+    flex: 1;
+    padding: 5px 20px;
+    text-align: center;
+
+
 }
 /* ----------------------FOOTER------------------------------------------------ */
 footer {
-    grid-area: grid-footer;
+    border: 1px solid black;
+    grid-column: 1/4;
+    grid-row: 4/5;
+    background-color: gainsboro;
+
 }
 /* ----------------------Navigation------------------------------------------------ */
 
