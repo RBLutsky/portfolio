@@ -93,7 +93,8 @@ html {
     /* enlarge image on hover */
     img.thumbnail:hover {
          transform: scale(1.5);
-}
+    }
+
     .tile-content {
         text-align: center;
         text-decoration: none;
@@ -110,13 +111,15 @@ html {
         border: 1px solid black;
         grid-column: 2/4;
         grid-row: 3/4;
+    }
+
+    img#profile {
+        border: 2px solid black; 
+        margin: 10px;
+        float: right;      
 
     }
-/* #title  {
-    font-family: arial;
-    font-size: 30px;
-    color: purple
-		} */
+
 	
 /*----------------------------------------------------------------------------------------------------------------------Header and Footer styles------------------------------------
 ----------------------------------------------------------------------------------------*/
